@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{data.name}}</h1>
+    {%for d in data.ninjas%}
+    <p>{{d.first_name}}   {{d.last_name}}   {{d.age}} </p>
+    <a href="/edit_ninja/{{d.id}}">edit</a>
+    <a href="/delete_ninja/{{d.id}}/{{data.id}}">delete</a>
+    
+    <hr>
+    {%endfor%}
+    <a href="/create_ninja">Create a Ninja</a>
+    <br><a href="/">Home</a>
+</body>
+</html>
