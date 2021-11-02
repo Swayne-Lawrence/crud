@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style5.css')}}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-xl " id="main">
+        <h1><a href="/edit_author/{{a_data.id}}">{{a_data.name}}</a></h1>
+        <a href="/show_authors" id="link">Show All Authors</a>
+        <div class="container-sm " id="body">
+        <div class="container-sm" id="list">
+            <h2>Favorites</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">*</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for a in a_data.fav_books%}
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{{a.title}}</td>
+                        <td>{{a.num_of_pages}}</td>
+                        <td><a href="/delete_fav/{{a.id}}/{{a_data.id}}" id="remove">remove</a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <!--end of list-->
+        <form action="/fav_form" method="post">
+            <div class="container-sm" id="form">
+                <h2 id="bookTitle">Add to Favorites</h2>
+                <select class="form-select" multiple aria-label="multiple select example" name="book_id" id="formBg">
+                    {%for b in b_data%}
+                    <option value="{{b.id}}">{{b.title}}</option>
+                    {%endfor%}
+                </select>
+                <input type="text" name="id" value="{{a_data.id}}"class="invisible"> 
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+            
+        </form>
+    </div><!--end of body-->
+    </div><!--end of main-->
+</body>
+
+</html>

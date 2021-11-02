@@ -1,0 +1,47 @@
+#main{
+    margin: 0px auto;
+    background-color: darkviolet;
+    width: 400px;
+    height: 900px;
+    margin-top: 50px;
+}
+h1{
+    text-align: center;
+    color: yellow;
+    position: relative;
+    top: 25px;
+    text-decoration: underline;
+}
+#list{
+    margin-top: 40px;
+    text-align: center;
+
+}
+.items{
+    background-color: mediumpurple;
+    color: yellow;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+.elements{
+    display: flex;
+    margin-left: 100px;
+    margin-top: 5px;
+}
+.delete{
+    width: 10%;
+    position: relative;
+    right: 30px;
+    padding: 5px;
+    font-size: 120%;
+    color: violet;
+    background-color: darkviolet;
+}
+.link{
+    position: relative;
+    top: 600px;
+    margin-left: 20px;
+    color: yellow;
+}
